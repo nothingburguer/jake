@@ -1,7 +1,7 @@
 {
   "variables": {
     "CXX": "g++",
-    "CXXFLAGS": "-std=c++17 -I./src/headers -I. -O2",
+    "CXXFLAGS": "-std=c++17 -I./src/headers -I.",
     "TARGET": "jake",
     "OBJDIR": "objs",
     "MAIN_OBJ": "${OBJDIR}/main.o",

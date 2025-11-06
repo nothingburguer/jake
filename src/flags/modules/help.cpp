@@ -15,14 +15,16 @@ void display_help(const json& processes) {
     std::cout << "\nOptions:" << std::endl;
     std::cout << std::setw(FLAG_WIDTH) << std::left << " -h, --help"
               << "Print this message and exit." << std::endl;
-
-    std::cout << "\nAvailable Targets (Jakefile.json):" << std::endl;
-    for (json::const_iterator it = processes.begin(); it != processes.end(); ++it) {
-        std::cout << " " << std::setw(FLAG_WIDTH - 1) << std::left << it.key()
-                  << "Defined execution rule." << std::endl;
+    if (processes.empty()) {
+        std::cout << "\nNo available Targets reached (Jakefile.json)";
+    } else {
+        std::cout << "\nAvailable Targets (Jakefile.json):" << std::endl;
+        for (json::const_iterator it = processes.begin(); it != processes.end(); ++it) {
+            std::cout << " " << std::setw(FLAG_WIDTH - 1) << std::left << it.key()
+                    << "Defined execution rule." << std::endl;
+        }
+        std::cout << "\nIf no 'target' is specified, the 'all' target is executed." << std::endl;
     }
-
-    std::cout << "\nIf no 'target' is specified, the 'all' target is executed." << std::endl;
 
     std::cout << "\nJake - A JSON Build tool." << std::endl;
     std::cout << "This program is free software; redistribute it under the terms of the GNU GPLv2." << std::endl;

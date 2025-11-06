@@ -167,7 +167,7 @@ int main(int argc, char **argv) {
                      std::cout << "+\e[1m[JAKE]\e[0m >>> "<< ANSI_COLOR_GREEN << 
                              "(" << called_target << ")" << ANSI_COLOR_RESET << std::endl;
                 } else {
-                     std::cout << "* " << final_command << std::endl;
+                     std::cout << " * " << final_command << std::endl;
                 }
             }
 
@@ -203,7 +203,7 @@ int main(int argc, char **argv) {
                        "Build failed." << ANSI_COLOR_RESET << std::endl;
                 }
             } else {
-                std::cout << final_prefix_indent << "   └── " << color << symbol << ANSI_COLOR_RESET << std::endl;
+                std::cout << final_prefix_indent << "    └── " << color << symbol << ANSI_COLOR_RESET << std::endl;
             }
 
             if (process_status != 0) {
