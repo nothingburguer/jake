@@ -39,3 +39,7 @@
 
 # debug information files
 *.dwo
+
+# Jake specifics
+jake
+test_suite/

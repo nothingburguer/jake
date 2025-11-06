@@ -1,0 +1,38 @@
+{
+  "variables": {
+    "CXX": "g++",
+    "CXXFLAGS": "-std=c++17 -I./src/headers -I. -O2",
+    "TARGET": "jake",
+    "OBJDIR": "objs",
+    "MAIN_OBJ": "${OBJDIR}/main.o",
+    "PARSE_OBJ": "${OBJDIR}/parse_variables.o",
+    "HELP_OBJ": "${OBJDIR}/help.o",
+    "OBJS": "${MAIN_OBJ} ${PARSE_OBJ} ${HELP_OBJ}"
+  },
+
+  "processes": {
+    "all": [
+      "jake objs",
+      "jake links"
+    ],
+
+    "objs": [
+      "@mkdir -p ${OBJDIR}",
+      "${CXX} ${CXXFLAGS} -c src/flags/modules/help.cpp -o ${HELP_OBJ}",
+      "${CXX} ${CXXFLAGS} -c src/headers/parse_variables.cpp -o ${PARSE_OBJ}",
+      "${CXX} ${CXXFLAGS} -c src/main.cpp -o ${MAIN_OBJ}"
+    ],
+
+    "links": [
+      "${CXX} -o ${TARGET} ${OBJS}"
+    ],
+
+    "clean": [
+      "rm -rf ${OBJDIR} ${TARGET}"
+    ],
+
+    "test": [
+      "@echo 'Compilation test running...'"
+    ]
+  }
+}
